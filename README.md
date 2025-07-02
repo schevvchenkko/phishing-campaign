@@ -28,26 +28,22 @@ A cloned version of Facebook’s login page was hosted on a Kali Linux virtual m
 Executed the following command:
 
 
-$sudo setoolkit
+    $sudo setoolkit
 
-![image](/imgs/Screenshot%202025-07-01%20221450.png)
+
 
 Selected the following options:
-
-![image](/imgs/Screenshot%202025-07-01%20221450.png)
 1) Social-Engineering Attacks
-
-![image](/imgs/image.png)
+![image](/imgs/Screenshot%202025-07-01%20221450.png)
 
 2) Website Attack Vectors
-
-![image](/imgs/Screenshot%202025-07-01%20223603.png)
+![image](/imgs/image.png)
 
 3) Credential Harvester Attack Method
-
-![image](/imgs/Screenshot%202025-07-01%20223941.png)
+![image](/imgs/Screenshot%202025-07-01%20223603.png)
 
 2) Site Cloner
+
 
 Now you must to set up the attack. The first choice is the IP adress of receiver(Your IP adress or your server's IP).
 
@@ -57,10 +53,11 @@ After set up your server(or IP adress) to receive the data came from the user(th
 
 3.2 Cloning the Target
 Cloning URL: http://www.facebook.com
-![image](/imgs/Screenshot%202025-07-01%20224822.png)
-
-IP Address / NGROK URL: <NGROK_URL>
 ![image](/imgs/Screenshot%202025-07-01%20224532.png)
+IP Address / NGROK URL: <NGROK_URL>
+![image](/imgs/Screenshot%202025-07-01%20223941.png)
+
+
 Note: HTTPS was avoided to prevent certificate mismatch issues.
 
 Example configuration:
@@ -134,5 +131,5 @@ This phishing exercise successfully demonstrated how an attacker could use SET t
 
 Performed by:
 Marcelo Lones
-Cybersecurity Analyst / Offensive Security Enthusiast
+Cybersecurity Analyst / Offensive Security
 
