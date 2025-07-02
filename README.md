@@ -33,6 +33,7 @@ Executed the following command:
 
 
 Selected the following options:
+
 1) Social-Engineering Attacks
 ![image](/imgs/Screenshot%202025-07-01%20221450.png)
 
@@ -43,7 +44,6 @@ Selected the following options:
 ![image](/imgs/Screenshot%202025-07-01%20223603.png)
 
 2) Site Cloner
-
 
 Now you must to set up the attack. The first choice is the IP adress of receiver(Your IP adress or your server's IP).
 
