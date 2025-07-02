@@ -29,6 +29,7 @@ Executed the following command:
 
 
 $sudo setoolkit
+
 ![image](/imgs/Screenshot%202025-07-01%20221450.png)
 
 Selected the following options:
@@ -67,7 +68,8 @@ Website to clone: http://www.facebook.com
 
 SET cloned the target site and hosted it locally via Apache.
 
-4. Delivery Mechanism
+## 4 - Delivery Mechanism
+
 The cloned page was shared via the NGROK URL. Delivery can occur through various social engineering methods:
 
 Phishing emails
@@ -78,39 +80,42 @@ Fake support calls
 
 ⚠️ Disclaimer: Delivery methods were not the focus of this exercise.
 
-5. Execution and Result
+## 5 - Execution and Result
 5.1 Victim Interaction
 When the victim clicked the NGROK link, the Facebook login clone was displayed. Upon entering credentials, the data was captured and shown on the attacker's terminal.
 
-Captured fields:
+**Captured fields:**
 
-Email / Phone
+    Email / Phone
 
+    Password
 
-Password
-
-5.2 Captured Output
+5.2 Captured Output:
 Example:
 ![image](/imgs/Screenshot%202025-07-01%20230301.png)
 
 Or your output will look like this:
 
-[*] WE GOT A HIT! Printing the output:
-PARAM: email=targetuser@example.com
-PARAM: pass=supersecretpassword123
+    [*] WE GOT A HIT! Printing the output:
 
-6. Post-Exploitation Potential
-Captured credentials may allow:
+    PARAM: email=targetuser@example.com
 
-Unauthorized access to Facebook or associated accounts
+    PARAM: pass=supersecretpassword123 
 
-Credential reuse in other platforms
+--------
+Post-Exploitation Potential
 
-Social engineering via phone/email
+ Captured credentials may allow:
 
-MFA bypass attempts via SIM swap or phishing
+**Unauthorized access to Facebook or associated accounts**
 
-7. Mitigation Recommendations
+**Credential reuse in other platforms**
+
+**Social engineering via phone/email**
+
+**MFA bypass attempts via SIM swap or phishing**
+
+## 7 - Mitigation Recommendations
 Enforce HTTPS and HSTS
 
 Enable multi-factor authentication
@@ -121,7 +126,7 @@ Use anti-phishing browser extensions
 
 Monitor for cloned or typosquatted domains
 
-8. Conclusion
+## 8 - Conclusion
 This phishing exercise successfully demonstrated how an attacker could use SET to clone a legitimate website and capture credentials. Despite its simplicity, the method is effective and reinforces the need for strong security awareness and defensive controls.
 
 Performed by:
