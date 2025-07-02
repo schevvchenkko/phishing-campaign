@@ -35,12 +35,15 @@ Executed the following command:
 Selected the following options:
 
 1) Social-Engineering Attacks
+
 ![image](/imgs/Screenshot%202025-07-01%20221450.png)
 
 2) Website Attack Vectors
+
 ![image](/imgs/image.png)
 
 3) Credential Harvester Attack Method
+
 ![image](/imgs/Screenshot%202025-07-01%20223603.png)
 
 2) Site Cloner
