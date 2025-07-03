@@ -56,9 +56,11 @@ After set up your server(or IP adress) to receive the data came from the user(th
 
 3.2 Cloning the Target
 Cloning URL: http://www.facebook.com
+
 ![image](/imgs/Screenshot%202025-07-01%20224532.png)
 
 IP Address / NGROK URL: <NGROK_URL>
+
 ![image](/imgs/Screenshot%202025-07-01%20223941.png)
 
 
